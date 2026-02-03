@@ -1,0 +1,31 @@
+body {
+    background-color: #e6e6fa;
+
+}
+h1{
+    font-size: 24pt;
+    font-family:'Gill Sans';
+    font-weight:bold;
+}
+p{
+    font-size: 14pt;
+    font-family: 'Gill sans';
+    font-style: normal;
+    font-weight: lighter;
+}
+h3{
+    font-size: 16pt;
+    font-family: 'Gill Sans';
+    font-style: normal;
+    font-weight:bold;
+}
+pre{
+    color: black;
+}
+a:link{
+ color: black;
+ text-decoration: none;
+}
+a:visited{
+    color:black;
+}
