@@ -1,6 +1,9 @@
-body {
+html {
+    background-image: url(Assets/Purple.png);
+}
+Body{
+    text-align: center;
     background-color: #e6e6fa;
-
 }
 h1{
     font-size: 24pt;
@@ -28,4 +31,7 @@ a:link{
 }
 a:visited{
     color:black;
+}
+li{
+    list-style-type: none;
 }
