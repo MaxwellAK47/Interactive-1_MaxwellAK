@@ -1,0 +1,57 @@
+a{
+    color: black;
+    transition: ease 2s;
+}
+.grid:hover a{
+    color:white;
+    transition: ease 2s;
+}
+.Text{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 15pt;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-items: center;
+}
+.By{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 15pt;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-items: center;
+    font-weight: bold;
+}
+.Title{
+    display: flex;
+    justify-content: center;
+    font-size: 36pt;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    justify-items: center;
+}
+.grid{
+    color:black; /*change this to black later on*/
+    background-color:black;
+    display: grid;
+    width: 180px;
+    height: 288px;
+    grid-template-columns:repeat(5,36px);
+    grid-template-rows: repeat(8,36px);  
+    float: left;
+    margin: 36px;
+    transition: ease 2s;
+}
+#fill{
+    color: white;
+    background-color: white;
+}
+.grid:hover{
+    color: white;
+    background-color: white;
+}
+.grid:hover #fill{
+    color: black;
+    background-color: black;
+}
