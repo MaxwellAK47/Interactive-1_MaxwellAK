@@ -1,45 +1,64 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
- 
+
 html {
-    background-image: url(assets/Purple.png);
+  background-image: url(assets/Purple.png);
 }
 body {
-    text-align: center;
-    background-color: #e6e6fa;
-    padding-bottom: 25px;
-    padding-top: 25px;
+  text-align: center;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
-h1{
-    font-size: 24pt;
-    font-family:'Gill Sans';
-    font-weight:bold;
+.desc {
+  text-align: left;
+  padding-left: 2vw;
+  padding-bottom: 2vh;
+  line-height: 3vh;
 }
-p{
-    font-size: 14pt;
-    font-family: 'Gill sans';
-    font-style: normal;
-    font-weight: lighter;
+h1 {
+  font-size: 24pt;
+  font-family: "Gill Sans";
+  font-weight: bold;
+  padding-bottom: 2vh;
 }
-h3{
-    font-size: 16pt;
-    font-family: 'Gill Sans';
-    font-style: normal;
-    font-weight:bold;
+p {
+  font-size: 14pt;
+  font-family: "Gill sans";
+  font-style: normal;
+  font-weight: lighter;
 }
-pre{
-    color: black;
+h3 {
+  font-size: 16pt;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 1vh;
 }
-a:link{
- color: black;
- text-decoration: none;
+pre {
+  color: black;
 }
-a:visited{
-    color:black;
+a:link {
+  color: black;
+  text-decoration: none;
 }
-li{
-    list-style-type: none;
+a:visited {
+  color: black;
+}
+li {
+  list-style-type: none;
+}
+#ascii {
+  padding-top: 2vh;
+  color: #301934;
+}
+#container {
+  background-color: #e6e6fa;
+  width: 75vw;
+  height: 75vh;
 }
