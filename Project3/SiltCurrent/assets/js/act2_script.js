@@ -93,6 +93,7 @@ const scenes = {
   // CourtYard:
   Courtyard: {
     text: "This is the courtyard where its covered by a variety of potted plants. </br> I don't remember what they look like so just imagine whatever plant you want, as there were practically every plant you can think off here.",
+    size: "PH",
     image: "PH",
     map: "Courtyard",
     choices: [
@@ -104,7 +105,7 @@ const scenes = {
       {
         label: "Look at the first floor plants",
         next: "FirstFloorPlantsA",
-        sound: "Pressed",
+        sound: "Raise",
       },
       {
         label: "Outside The Garrage",
@@ -113,9 +114,42 @@ const scenes = {
       },
     ],
   },
+  // First Floor Plants A
+  FirstFloorPlantsA: {
+    text: "Ah these plants my grandparents love to garden as hobby I don't remember the specific plants they had but I think they were chinese.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      { label: "Continue", next: "FirstFloorPlantsB", sound: "Pressed" },
+    ],
+  },
+  // First Floor Plants B
+  FirstFloorPlantsB: {
+    text: "She allways be watering these plants throughout the day and I remember watching her water them.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      { label: "Thats Neat", next: "FirstFloorPlantsC", sound: "Pressed" },
+    ],
+  },
+  // First Floor Plants C
+  FirstFloorPlantsC: {
+    text: "Well lets keep going, I'm sure theres more to this house than what I remembered.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Sure Thing",
+        next: "CourtYard",
+        sound: "FoundIT",
+        memory: "FirstFloorPLantsMemory",
+      },
+    ],
+  },
   // Open Air Garrage:
   OpenAirGarrage: {
-    text: "Oh this area of the house it just leads to another gate, we never really used it so its just empty maybe theres a car here sometimes.",
+    text: "Oh this area of the house it just leads to another gate, we never really used it so its just empty maybe there was a car here but I don't remember what it looks like.",
+    size: "PH",
     image: "PH",
     map: "OpenAirGarrage",
     choices: [
@@ -194,18 +228,23 @@ const scenes = {
         label: "Alright then.",
         next: "Garrage",
         sound: "FoundIT",
+        memory: "CarMemory",
       },
     ],
   },
   // Laundry:
   Laundry: {
-    text: "The laundry room, I don't remeber if they used a washing machine or just hang dryed the clothes but I do remember something important was in here. </br></br> To your left is the Other Stairs to the 2nd floor </br></br> To your right is the kitchen </br></br> And right behind you is the hallway to the garrage and outside.",
+    text: "Oh the laundry room, I don't remember if they ever used a washing machine or just hang dry the clothes but I do remember something important was in here. </br></br> To your left is the Other Stairs to the 2nd floor </br></br> To your right is the kitchen </br></br> And right behind you is the hallway to the garrage and outside.",
     image: "PH",
     map: "Laundry",
     choices: [
-      { label: "To the 2nd Floor", next: "OtherStairs", sound: "Pressed" },
+      {
+        label: "To the Other Stairs to the 2nd Floor",
+        next: "OtherStairs",
+        sound: "Pressed",
+      },
       { label: "To the Kitchen", next: "Kitchen", sound: "Pressed" },
-      { label: "Back to the Hallway", next: "SideHallway", sound: "Pressed" },
+      { label: "To the Hallway", next: "SideHallway", sound: "Pressed" },
     ],
   },
   // Kitchen:
@@ -216,7 +255,7 @@ const scenes = {
     map: "Kitchen",
     choices: [
       { label: "To the Laundry Room", next: "Laundry", sound: "Pressed" },
-      { label: "To the Kitchen Bar", next: "Bar", sound: "Pressed" },
+      { label: "To the Bar", next: "Bar", sound: "Pressed" },
     ],
   },
   // Bar:
@@ -233,14 +272,45 @@ const scenes = {
   },
   // Dining Room:
   DiningRoom: {
-    text: "The dineing room, ah a place where when its lunch or dinner where everyone gathers to eat.<br/></br> My Grandma makes a fine Ox tail soup I allways look forward to eating it.",
+    text: "The dineing room, a place where when its lunch or dinner where everyone gathers to eat.<br/></br> My Grandma makes a fine Ox tail soup I allways look forward to eating it.",
     size: "small",
     image: "DiningRoom",
     map: "DiningRoom",
     choices: [
-      { label: "To the Fridge", next: "FridgeA", sound: "Pressed" },
+      {
+        label: "Whats that Fridge doing there?",
+        next: "Fridge_A",
+        sound: "Pressed",
+      },
       { label: "To the Bar", next: "Bar", sound: "Pressed" },
       { label: "To the Living Room", next: "LivingRoom", sound: "Pressed" },
+    ],
+  },
+  // Fridge A
+  Fridge_A: {
+    text: "Oh that, thats my Grandpa's personal storage of sweets like candys, chocolate and icecream and so on. </br></br> He allways loves sweets and giving them to my siblings, cousins and I. I allways remember he'd pass me a bar of chocolate I believe it was a Kit Kat Bar.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Sounds like a good man",
+        next: "Fridge_B",
+        sound: "pressed",
+      },
+    ],
+  },
+  // Fridge B
+  Fridge_B: {
+    text: "He is ,He keep passing them out even when I'm much later into my teen years. Alright then lets keep looking around I'm sure theres more.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Alright",
+        next: "DiningRoom",
+        sound: "FoundIT",
+        memory: "FridgeMemory",
+      },
     ],
   },
   // 1st Floor Bathroom:
@@ -249,15 +319,39 @@ const scenes = {
     image: "First_Bath_R",
     map: "FirstBathroom",
     choices: [
-      { label: "The Weird Looking tub", next: "TubA", sound: "Pressed" },
+      { label: "The Weird Looking tub?", next: "TubA", sound: "Pressed" },
       { label: "To the Bar ", next: "Bar", sound: "Pressed" },
     ],
   },
   // The Tub A:
   TubA: {
     text: "Oh that I'm not really sure whats that for, I remember allways seeing it full of water every time I used this bathroom.</br> Perhaps its just a bathtub? never really saw anyone used it.",
-    image: "PH",
-    choices: [{ label: "Continue", next: "TubB", sound: "Pressed" }],
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      { label: "Maybe it had a purpose?", next: "TubB", sound: "Pressed" },
+    ],
+  },
+  // The Tub B:
+  TubB: {
+    text: "Yeah, maybe it did, wait now I remember its used to wash the children since they can fit inside the tub.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [{ label: "Continue", next: "TubC", sound: "Pressed" }],
+  },
+  // The Tub C:
+  TubC: {
+    text: "Well lets keep looking around I swear we are getting closer to figureing out this place.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Alrighty Then",
+        next: "FirstBathroom",
+        sound: "FoundIT",
+        memory: "TubMemory",
+      },
+    ],
   },
   // Front Door:
   FrontDoor: {
@@ -273,7 +367,7 @@ const scenes = {
   },
   // Fish Pond A
   FishPond_A: {
-    text: "Yeah a fish pond, It's empty now cause I can't really remmeber what kind of fishes were here, If I remember correctly they were random fish he probally fished in the pacific ocean. </br></br> He brought the fish with him when they moved out to a new house. I they have thier own tank inside the house this time.",
+    text: "Yeah a fish pond, It's empty now cause I can't really remember what kind of fishes were here, If I remember correctly they were random fish he probally fished in the pacific ocean. </br></br> He brought the fish with him when they moved out to a new house. I they have thier own tank inside the house this time.",
     size: "huge",
     image: "TheNarrator",
     map: "FrontDoor",
@@ -283,7 +377,7 @@ const scenes = {
   },
   // Fish Pond B
   FishPond_B: {
-    text: "I remeber disitnctly watching the fish some would go close and look at me to see.",
+    text: "I remember disitnctly watching the fish some would go close and look at me to see.",
     size: "huge",
     image: "TheNarrator",
     map: "FrontDoor",
@@ -297,7 +391,14 @@ const scenes = {
     size: "huge",
     image: "TheNarrator",
     map: "FrontDoor",
-    choices: [{ label: "Alright Then", next: "FrontDoor", sound: "FoundIT" }],
+    choices: [
+      {
+        label: "Alright Then",
+        next: "FrontDoor",
+        sound: "FoundIT",
+        memory: "FishPondMemory",
+      },
+    ],
   },
   // Side Room:
   SideRoom: {
@@ -356,33 +457,47 @@ const scenes = {
     text: "Thats Nice can't go wrong with a dog the classic pet, lets keep exploreing this house then..",
     size: "huge",
     image: "TheNarrator",
-    choices: [{ label: "Alrighty Then", next: "SideRoom", sound: "FoundIT" }],
+    choices: [
+      {
+        label: "Alrighty Then",
+        next: "SideRoom",
+        sound: "FoundIT",
+        memory: "DogMemory",
+      },
+    ],
   },
   // Dogs_Cat
-  Dogs_Dog: {
+  Dogs_Cat: {
     text: "Oh a cat enjoyer thats prety nice, lets keep exploreing this house then.",
     size: "huge",
     image: "TheNarrator",
-    choices: [{ label: "Alrighty Then", next: "SideRoom", sound: "FoundIT" }],
+    choices: [
+      {
+        label: "Alrighty Then",
+        next: "SideRoom",
+        sound: "FoundIT",
+        memory: "DogMemory",
+      },
+    ],
   },
   // Dogs_Neither
   Dogs_Neither: {
     text: "Awww, well that was worth the try, lets keep exploreing this house then.",
     size: "huge",
     image: "TheNarrator",
-    choices: [{ label: "Alrighty Then", next: "SideRoom", sound: "FoundIT" }],
-  },
-  // First Floor Plants A
-  FirstFloorPlantsA: {
-    text: "Ah these plants my grandparents love to garden as hobby I don't remember the specific plants they had but I think they were chinese.",
-    image: "PH",
     choices: [
-      { label: "Continue", next: "FirstFloorPlantsB", sound: "Pressed" },
+      {
+        label: "Alrighty Then",
+        next: "SideRoom",
+        sound: "FoundIT",
+        memory: "DogMemory",
+      },
     ],
   },
+
   // Living Room:
   LivingRoom: {
-    text: "Oh its the living room, its a place that the family likes to hang out at, pretty open space so the kids would run around here. </br></br> Next to the front door is a shoe rack. </br></br> Your left is the side room where the family dogs are and the stairs to the 2nd floor. </br></br>Infront of you is a exercise machine, plastic kids bike. And a family photo.</br></br>To your right is the dining room</br></br>So where to?",
+    text: "Oh its the living room, its a place that the family likes to hang out at, pretty open space so the kids would run around here. </br></br> Next to the front door is a shoe rack. </br></br> Your left is the side room where the family dogs are and the stairs to the 2nd floor. </br></br>Infront of you is a exercise machine, plastic kids bike. And a family photo.</br></br>Nearby the front door this is a shoe cabinet with a bunch of shoes laying onf the floor.</br></br>To your right is the dining room</br></br>So where to?",
     image: "LivingRoom",
     size: "small",
     map: "LivingRoom",
@@ -395,6 +510,11 @@ const scenes = {
       {
         label: "That photo over the couch? who is that?",
         next: "Photo_A",
+        sound: "Raise",
+      },
+      {
+        label: "Woah theres so many shoes on the floor.",
+        next: "ShoeRack_A",
         sound: "Raise",
       },
       { label: "To the Side Room", next: "SideRoom", sound: "Pressed" },
@@ -430,19 +550,82 @@ const scenes = {
     text: "Well, I guess so, oh well I was a bit dumber when I was younger then, lets keep lookinging around.",
     size: "huge",
     image: "TheNarrator",
-    choices: [{ label: "Yep", next: "LivingRoom", sound: "FoundIT" }],
+    choices: [
+      {
+        label: "Yep",
+        next: "LivingRoom",
+        sound: "FoundIT",
+        memory: "ExecerciseMemory",
+      },
+    ],
   },
   // Execercise Equipment B-B
-  Execercise_B_A: {
+  Execercise_B_B: {
     text: "Oh? really well kids are allways gonna be kids I guess, well it was fun though,lets keep lookinging around.",
     size: "huge",
     image: "TheNarrator",
-    choices: [{ label: "Yep", next: "LivingRoom", sound: "FoundIT" }],
+    choices: [
+      {
+        label: "Yep",
+        next: "LivingRoom",
+        sound: "FoundIT",
+        memory: "ExecerciseMemory",
+      },
+    ],
+  },
+  // Photo A
+  Photo_A: {
+    text: "Oh thats a really old photo of my mothers side of the family. I know it was there but I never really remembered what specificially it looked like. </br></br> I think it was taken before I was even born as I believed it was taken before my Mom married my Dad.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "So it must be really old?",
+        next: "Photo_B",
+        sound: "Pressed",
+      },
+    ],
+  },
+  // Photo B
+  Photo_B: {
+    text: "Yeah pretty much, I have many uncles and aunties I to be honest have not seen in years. I wonder what they'd think of me now? well lets keep looking around I'm sure theres more to this place.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Alrighty then",
+        next: "LivingRoom",
+        sound: "FoundIT",
+        memory: "PhotoMemory",
+      },
+    ],
+  },
+  // ShowRack A
+  ShoeRack_A: {
+    text: "Oh that those are where everyone takes thier footwear off like shoes, sandals, heels and so on. </br></br> Its a tradion to treat your home with respect since the bottom of your shoes are dirty I still do this to this day.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [{ label: "Neat", next: "ShoeRack_B", sound: "Pressed" }],
+  },
+  // ShowRack B
+  ShoeRack_B: {
+    text: "Well its best we take off ou- wait a minute this is a memory theres no need to take our shoes off we can simply unthink them. </br></br> Well lets keep going I'm sure there's more to this house.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Neat",
+        next: "ShoeRack_B",
+        sound: "FoundIT",
+        memory: "ShoesMemory",
+      },
+    ],
   },
   // 1st Floor Bedroom:
   FirstBedroom: {
-    text: "Wellcome to the 1st floor bedroom, I don't remember who sleeps here, probally my grandparents as they struggle to go up stairs.",
+    text: "Wellcome to the 1st floor bedroom, I don't remember who sleeps here, probally my grandparents as they struggle to go up and down stairs.",
     image: "PH",
+    size: "PH",
     map: "FirstBedroom",
     choices: [
       {
@@ -459,8 +642,9 @@ const scenes = {
   },
   // 1st Floor Bedroom Bathroom:
   Fst_BR_Bathroom: {
-    text: "Honestly I don't remember much about this room I rarely ever been here.",
+    text: "Honestly I don't remember much about this room I rarely ever been here, so lets get out of here.",
     image: "PH",
+    size: "PH",
     map: "Fst_BR_Bathroom",
     choices: [
       {
@@ -477,8 +661,9 @@ const scenes = {
   },
   // Main Stairs:
   Stairs: {
-    text: "Oh the main stairs to the 2nd floor you can go up or you can look around still on the first floor.",
+    text: "Oh the main stairs to the 2nd floor you can go up or you can look around still on the first floor. </br> Just hold on to the gaurd railings so you don't slip.",
     image: "PH",
+    size: "PH",
     map: "BTMStairs",
     choices: [
       {
@@ -498,6 +683,7 @@ const scenes = {
   OtherStairs: {
     text: "The other stairs to the 2nd floor there are no gaurd rails here, so its best to be careful when walking up or down these stairs.",
     image: "PH",
+    size: "PH",
     map: "O_BTMStairs",
     choices: [
       {
@@ -534,16 +720,72 @@ const scenes = {
       { label: "Who's Bedroom", next: "WhoBedroom", sound: "Pressed" },
       { label: "Empty Bedroom", next: "EmptyBedroom", sound: "Pressed" },
       { label: "To the Balcony", next: "Balcony", sound: "Pressed" },
-      { label: "Whats that Shrine?", next: "Shrine_A", sound: "Pressed" },
+      { label: "Whats that Shrine?", next: "Shrine_A", sound: "Raise" },
       {
         label: "Whats that Fishing Rod?",
         next: "FishingRod_A",
-        sound: "Pressed",
+        sound: "Raise",
       },
       {
         label: "To the Main Stairs",
         next: "SecondFloorStairs",
         sound: "Pressed",
+      },
+    ],
+  },
+  // Shrine_A
+  Shrine_A: {
+    text: "Oh that I don't remember I think it was either Taoism or Buddism I'm not sure nothing of it stood out to me.",
+    image: "Narrator",
+    size: "small",
+    choices: [{ label: "Alrigh then", next: "Shrine_B", sound: "Pressed" }],
+  },
+  // Shrine_B
+  Shrine_B: {
+    text: "I'm curious about my family history but I can't really just asked my grandparents about it, since they are 2nd generation chinese immigrants born in Indonesia. My great grandma was alive when I was young since I remember her face clearly.",
+    image: "Narrator",
+    size: "small",
+    choices: [{ label: "continue", next: "Shrine_C", sound: "Pressed" }],
+  },
+  // Shrine_C
+  Shrine_C: {
+    text: "She was very much kind, I'm not sure what happened to her, she probally passed away a long time ago. Oh well lets get back to it then.",
+    image: "Narrator",
+    size: "small",
+    choices: [
+      {
+        label: "Alright",
+        next: "GeneralRoom",
+        sound: "FoundIT",
+        memory: "ShrineMemory",
+      },
+    ],
+  },
+  // Fishing A
+  FishingRod_A: {
+    text: "Thats my uncles he likes to store his fishing equipment here in this room thats why all the boxes are around.",
+    image: "Narrator",
+    size: "small",
+    choices: [{ label: "Oh", next: "FishingRod_B", sound: "Pressed" }],
+  },
+  // Fishing B
+  FishingRod_B: {
+    text: "He likes to go fishing often although I'm unsure why? does he do it for business or hobby? probally both. He likes to pass along fish to my mom so she can cook for me and my family back home, I'm unsure if he still passes fish to my Mom nor does my Mom cook at home.",
+    image: "Narrator",
+    size: "small",
+    choices: [{ label: "Cool", next: "FishingRod_C", sound: "Pressed" }],
+  },
+  // Fishing C
+  FishingRod_C: {
+    text: "Well thats fine though, back to it then.",
+    image: "Narrator",
+    size: "small",
+    choices: [
+      {
+        label: "OK",
+        next: "GeneralRoom",
+        sound: "FoundIT",
+        memory: "FishingMemory",
       },
     ],
   },
@@ -562,12 +804,39 @@ const scenes = {
       { label: "Back Inside", next: "GeneralRoom", sound: "Pressed" },
     ],
   },
-  // SF Plants
+  // SF Plants A
   SF_Plants_A: {
-    text: "2nd Floor Plants",
+    text: "Same as the ones downstairs to be honest, they were probally palced up here because either they ran out of room downstairs or these plants needed more sunlight.",
     size: "small",
     image: "SF_Plants",
-    choices: [{ label: "The Plants?", next: "SF_Plants_B", sound: "Pressed" }],
+    choices: [
+      {
+        label: "Do any of these plants stood out to you?",
+        next: "SF_Plants_B",
+        sound: "Pressed",
+      },
+    ],
+  },
+  // SF Plants B
+  SF_Plants_B: {
+    text: "To be honest its a succulent, even to this day I own a small succulent to remind me of home and to atleast have some decoration in my space.",
+    size: "small",
+    image: "SF_Plants",
+    choices: [{ label: "The Plants?", next: "SF_Plants_C", sound: "Pressed" }],
+  },
+  // SF Plants C
+  SF_Plants_C: {
+    text: "Well lets keep looking around I'm sure theres more to this floor. Thank you",
+    size: "small",
+    image: "SF_Plants",
+    choices: [
+      {
+        label: "No problem",
+        next: "Balcony",
+        sound: "FoundIT",
+        memory: "SecondFloorPlantsMemory",
+      },
+    ],
   },
   // Uncles Bedroom
   UnclesBedroom: {
@@ -575,12 +844,45 @@ const scenes = {
     image: "PH",
     map: "Unc_Bedroom",
     choices: [
-      { label: "The TV?", next: "UBR_PS5_A", sound: "Pressed" },
+      { label: "The TV?", next: "UBR_PS5_A", sound: "Raise" },
       { label: "To the makeup room", next: "MakeupRoom", sound: "Pressed" },
       {
         label: "Back to the general Room",
         next: "GeneralRoom",
         sound: "Pressed",
+      },
+    ],
+  },
+  // PS5 A
+  UBR_PS5_A: {
+    text: "Oh they use a game console to play if I remember correctly: Minecraft and Call of Duty, I remember I would hang out with them and just play games with them. I have not seen them in forever, and I'm not sure if they really cared about me after I went abroad to study.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [{ label: "Oh...", next: "UBR_PS5_B", sound: "Pressed" }],
+  },
+  // PS5 B
+  UBR_PS5_B: {
+    text: "Maybe later on I can talk to them, hang out they are probally in thier teens by now so perhaps I can give them advice or just act like a older brother.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Well good luck with that,",
+        next: "UBR_PS5_C",
+        sound: "Pressed",
+      },
+    ],
+  },
+  // PS5 C
+  UBR_PS5_C: {
+    text: "Yeah thanks,lets keep going.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Yep",
+        next: "UnclesBedroom",
+        sound: "FoundIT",
       },
     ],
   },
@@ -590,7 +892,7 @@ const scenes = {
     image: "PH",
     map: "Makeup",
     choices: [
-      { label: "Who uses this room?", next: "Aunt_A", sound: "Pressed" },
+      { label: "Who uses this room?", next: "Aunt_A", sound: "Raise" },
       { label: "To Uncles Bathroom", next: "UnclesBathroom", sound: "Pressed" },
       {
         label: "Back to uncles Bedroom",
@@ -599,13 +901,40 @@ const scenes = {
       },
     ],
   },
+  // Aunt A
+  Aunt_A: {
+    text: "My Auntie atleast I think so, this room is here and it did had her stuff but I never say her used it. Probally did when I'm not here now that I think about it.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Continue",
+        next: "Aunt_B",
+        sound: "Pressed",
+      },
+    ],
+  },
+  // Aunt B
+  Aunt_B: {
+    text: "She was a kind woman but I never really talked too much with her. Maybe I'll get my chance later on but oh well, whats done is done. </br></br> Lets keep looking thanks for just being a earpiece to my convos.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "No problem man",
+        next: "MakeupRoom",
+        sound: "FoundIT",
+        memory: "AuntMemory",
+      },
+    ],
+  },
   // Uncles Bathroom
   UnclesBathroom: {
-    text: "Same old bathroom, honestly theres not much to it.",
+    text: "Same old bathroom, honestly theres not much to it. lets get out of here",
     image: "PH",
+    size: "PH",
     map: "Unc_Bathoom",
     choices: [
-      { label: "Really?", next: "Uncle_Bath_A", sound: "Pressed" },
       {
         label: "Back to the makeup room",
         next: "MakeupRoom",
@@ -617,9 +946,10 @@ const scenes = {
   WhoBedroom: {
     text: "I don't remember, who this bedroom is for, maybe one of my uncle or aunt?",
     image: "PH",
+    size: "PH",
     map: "Who",
     choices: [
-      { label: "Really?", next: "WHo_Room_A", sound: "Pressed" },
+      { label: "Really?", next: "Who_Room_A", sound: "Raise" },
       { label: "To the bathroom", next: "WhoBathRoom", sound: "Pressed" },
       {
         label: "Back to the general Room",
@@ -628,23 +958,64 @@ const scenes = {
       },
     ],
   },
+  // Who A
+  Who_Room_A: {
+    text: "Wait never mind now I remember its a guest room where I would stay in when visting. How could I forget.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Anything interesting happened here?",
+        next: "Who_Room_B",
+        sound: "pressed",
+      },
+    ],
+  },
+  // Who B
+  Who_Room_B: {
+    text: "Besides plenty of pillow fights with my siblings and cousins, not really it was more of a comfy room to hang out in.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Alright then",
+        next: "Who_Room_C",
+        sound: "pressed",
+      },
+    ],
+  },
+  // Who C
+  Who_Room_C: {
+    text: "Well lets keep looking around I think we are almost done here.",
+    size: "small",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Alrighty",
+        next: "WhoBedroom",
+        sound: "FoundIT",
+        memory: "WhoMemory",
+      },
+    ],
+  },
   // Who's bathroom
-  WhoBathroom: {
-    text: "Another bathroom, probally one of the more nicer ones in the house.",
-    image: "PH",
+  WhoBathRoom: {
+    text: "Another bathroom, probally one of the more nicer ones in the house. Thats why I like to use this one more since it was pretty clean.",
+    image: "SecondFloorBathroom",
+    size: "small",
     map: "Bath_Who",
     choices: [
-      { label: "Weird?", next: "Who_Bathroom_A", sound: "Pressed" },
       { label: "Back to the BedRoom", next: "WhoBedRoom", sound: "Pressed" },
     ],
   },
   // Kids Bedroom
   SFA_Bedroom: {
-    text: "This room was my mothers bedroom when she was younger now its a kids bedroom for one of my cousins.",
+    text: "Oh this room was my mothers bedroom when she was younger now its a kids bedroom for one of my cousins.",
     image: "PH",
+    size: "PH",
     map: "Kids_Room",
     choices: [
-      { label: "Your Mothers Room?", next: "KBR_A", sound: "Pressed" },
+      { label: "Your Mothers Room?", next: "KBR_A", sound: "Raise" },
       { label: "To the other Balcony", next: "OtherBalcony", sound: "Pressed" },
       {
         label: "Back to the stairs",
@@ -653,14 +1024,40 @@ const scenes = {
       },
     ],
   },
+  // Kids Bed Room A
+  KBR_A: {
+    text: "Yep it was, she never really told me much about what how it was like when she was my age or younger. Its more accurate to call this room a babys room since theres where they have baby cribs and baby stuff here like milk formulas and such.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Continue",
+        next: "KBR_B",
+        sound: "pressed",
+      },
+    ],
+  }, // Kids Bed Room B
+  KBR_B: {
+    text: "Honestly theres not much to this room besides that, lets keep going.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "OK",
+        next: "SFA_Bedroom",
+        sound: "FoundIT",
+        memory: "KidsBedRoomMemory",
+      },
+    ],
+  },
   // Other Balcony
   OtherBalcony: {
-    text: "I don't remember much about this part of the house, I do remember its here but not anything particular stands out here",
+    text: "I don't remember much about this part of the house, I do remember its here but not anything particular stands out here other than looking at the sky Lets head back inside.",
     image: "PH",
+    size: "PH",
     map: "O_Balcony",
     choices: [
       {
-        label: "What is place used for?",
         next: "OtherBal_A",
         sound: "Pressed",
       },
@@ -673,7 +1070,7 @@ const scenes = {
     image: "PH",
     map: "E_Bedroom",
     choices: [
-      { label: "Why is it empty?", next: "EmptyBedroom_A", sound: "Pressed" },
+      { label: "Why is it empty?", next: "EmptyBedroom_A", sound: "Raise" },
       { label: "To the Bathroom", next: "EmptyBathroom", sound: "Pressed" },
       {
         label: "To the other stairs",
@@ -681,9 +1078,23 @@ const scenes = {
         sound: "Pressed",
       },
       {
-        label: "Back To the general Room",
+        label: "To the general Room",
         next: "GeneralRoom",
         sound: "Pressed",
+      },
+    ],
+  },
+  // Empty Bedroom
+  EmptyBedroom_A: {
+    text: "Honestly I'm not so sure lets just get out of here this room gives me the creeps.",
+    size: "huge",
+    image: "TheNarrator",
+    choices: [
+      {
+        label: "Understandable",
+        next: "EmptyBedroom",
+        sound: "FoundIT",
+        memory: "EmptyBedRoomMemory",
       },
     ],
   },
@@ -693,11 +1104,6 @@ const scenes = {
     image: "PH",
     map: "E_Bathroom",
     choices: [
-      {
-        label: "Seems Unremarkable and small",
-        next: "EmptyBathroom_A",
-        sound: "Pressed",
-      },
       { label: "Back to the bedroom", next: "EmptyBedroom", sound: "Pressed" },
     ],
   },
@@ -705,6 +1111,7 @@ const scenes = {
   SecondFloorOtherStairs: {
     text: "The top of the other sets of stairs be sure to be careful while going up and down.",
     image: "PH",
+    size: "PH",
     map: "O_TopStairs",
     choices: [
       { label: "Back Down", next: "OtherStairs", sound: "Pressed" },
@@ -743,6 +1150,12 @@ const map = document.querySelector("#map");
 const mutebtn = document.querySelector("#mute-button");
 const BG_Audio = document.querySelector("#background_audio");
 
+//Found Counter
+let foundCount = 0;
+const foundCounter = document.querySelector("#found-counter");
+// Found Memories
+let foundMemories = new Set();
+
 //SFX
 const sound = {
   Hover: new Audio("assets/audio/ui_button_mouseover.ogg"),
@@ -760,7 +1173,6 @@ const asciiSizes = {
   huge: "ascii-huge",
   PH: "ascii-PH",
 };
-
 // Track simple game state here.
 function setAsciiSize(size = "medium") {
   ascii.classList.remove(...Object.values(asciiSizes));
@@ -852,7 +1264,17 @@ function goToScene(name) {
         sound[choice.sound].currentTime = 0;
         sound[choice.sound].play();
       }
+      // Found Counter + Only Counts up when finding a new memory
+      if (choice.sound === "FoundIT") {
+        if (!foundMemories.has(choice.memory)) {
+          foundMemories.add(choice.memory);
+          foundCount++;
+          foundCounter.textContent = `Memories Found: ${foundCount}`;
+          console.log("Memory Found:", choice.memory);
+        }
+      }
 
+      // Move Acts
       if (choice.next.endsWith(".html")) {
         window.location.href = choice.next;
       } else {

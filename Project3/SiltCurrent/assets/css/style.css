@@ -62,7 +62,7 @@ body {
   font-size: clamp(25px, 1vw, 50px);
 }
 #ascii.ascii-PH {
-  font-size: clamp(50px, 2vw, 100px);
+  font-size: clamp(10px);
 }
 #story {
   line-height: 22.5px;
@@ -82,4 +82,41 @@ body {
   top: 20px;
   left: 20px;
   z-index: 1000;
+}
+#GameTitle {
+  font-size: 6.75px;
+  color: var(--green);
+  z-index: 1;
+  position: absolute;
+  white-space: pre;
+  /*
+  left: 0;
+  animation: scroll 10s linear infinite;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(-110vw);
+  }
+
+  to {
+    transform: translateX(110vw);
+  }*/
+}
+#BlackBox {
+  position: absolute;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  animation: moveDown 3s ease-in-out forwards;
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
 }

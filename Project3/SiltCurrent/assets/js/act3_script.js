@@ -9,11 +9,21 @@
 // To add a new scene: copy one of these blocks, give it a new name,
 // and make sure at least one choice in another scene points to it.
 // =============================================
+// Load Found Memories
+const savedMemories = JSON.parse(localStorage.getItem("foundMemories")) || [];
 
+const savedCount = parseInt(localStorage.getItem("foundCount")) || 0;
+
+console.log(savedMemories);
+console.log("Total Memories:", savedCount);
+
+// =============================================
+// 1. Scenes
+// =============================================
 const scenes = {
   // Scene 1:
   scene1: {
-    text: "You awake lying on the grass, you see Max looking over you Yo You awake?",
+    text: "You awake lying on the grass, you see Max looking over you </br></br>Yo You awake?",
     image: "TheView",
     size: "small",
     choices: [{ label: "Yeah", next: "scene2", sound: "Pressed" }],

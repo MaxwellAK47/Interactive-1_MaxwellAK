@@ -11,8 +11,9 @@
 // =============================================
 
 const scenes = {
-  // Cover
+  // Intro
   Cover: {
+    Title: "Title_Spread",
     text: "",
     image: "Cover",
     size: "medium",
@@ -240,6 +241,7 @@ const ascii = document.querySelector("#ascii");
 const reset = document.querySelector("#reset");
 const mutebtn = document.querySelector("#mute-button");
 const BG_Audio = document.querySelector("#background_audio");
+const GameTitle = document.querySelector("#GameTitle");
 
 //SFX
 const sound = {
@@ -272,12 +274,12 @@ function setAsciiSize(size = "medium") {
 function goToScene(name) {
   // --- Look up the scene ---
   const scene = scenes[name];
-
   let storyText = scene.text;
 
   // --- Update the page ---
   story.innerHTML = storyText;
   ascii.innerHTML = asciiArt[scene.image];
+  GameTitle.textContent = asciiArt[scene.Title] || "";
   setAsciiSize(scene.size);
 
   // Remove the old buttons
